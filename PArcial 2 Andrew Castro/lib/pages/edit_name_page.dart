@@ -12,11 +12,16 @@ class _EditNamePageState extends State<EditNamePage> {
   TextEditingController descripcionController= TextEditingController(text: "");
   bool estadoController = false;
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
     tareaController.text = arguments['tarea'];
     descripcionController.text = arguments['descripcion'];
-    bool estadoController = false;
+    bool estadoController = arguments ['estado'] ??false;
 
     return Scaffold(
       appBar: AppBar(
